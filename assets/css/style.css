@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: "Open Sans", "Roboto", sans-serif;
   background: #f6f9ff;
   color: #444444;
 }
@@ -39,7 +39,7 @@ p,
 label,
 th,
 td {
-  font-family: "Manrope", sans-serif;
+  font-family: "Poppins", "Roboto", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -69,6 +69,7 @@ td {
   margin-bottom: 0;
   font-weight: 600;
   color: #012970;
+  font-family: "Poppins", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -310,7 +311,7 @@ td {
 /* Breadcrumbs */
 .breadcrumb {
   font-size: 14px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #899bbd;
   font-weight: 600;
 }
@@ -377,7 +378,7 @@ td {
   font-size: 26px;
   font-weight: 700;
   color: #012970;
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .header {

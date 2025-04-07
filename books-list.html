@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Quản lý danh sách sách - BookStore Admin</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Danh sách sách</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Quản lý sách</li>
+                    <li class="breadcrumb-item active">Danh sách sách</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Danh sách sách</h5>
+
+                            <!-- Toolbar -->
+                            <div class="d-flex justify-content-between mb-3">
+                                <div>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#addBookModal">
+                                        <i class="bi bi-plus-lg"></i> Thêm sách mới
+                                    </button>
+                                    <button type="button" class="btn btn-success ms-2">
+                                        <i class="bi bi-file-earmark-excel"></i> Xuất Excel
+                                    </button>
+                                    <button type="button" class="btn btn-secondary ms-2">
+                                        <i class="bi bi-printer"></i> In
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select me-2" style="width: auto;">
+                                        <option value="">-- Danh mục --</option>
+                                        <option value="1">Văn học</option>
+                                        <option value="2">Kinh tế</option>
+                                        <option value="3">Tâm lý học</option>
+                                        <option value="4">Thiếu nhi</option>
+                                        <option value="5">Tiểu sử</option>
+                                    </select>
+                                    <select class="form-select me-2" style="width: auto;">
+                                        <option value="">-- Trạng thái --</option>
+                                        <option value="1">Còn hàng</option>
+                                        <option value="2">Hết hàng</option>
+                                        <option value="3">Sắp về</option>
+                                        <option value="4">Ngừng kinh doanh</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Table with stripped rows -->
+                            <table class="table datatable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Hình ảnh</th>
+                                        <th scope="col">Tên sách</th>
+                                        <th scope="col">Tác giả</th>
+                                        <th scope="col">Danh mục</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Số lượng</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Thao tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg"
+                                                height="50"></td>
+                                        <td>Nhà giả kim</td>
+                                        <td>Paulo Coelho</td>
+                                        <td>Văn học</td>
+                                        <td>120.000đ</td>
+                                        <td>100</td>
+                                        <td><span class="badge bg-success">Còn hàng</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-info"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8934974182375.jpg"
+                                                height="50"></td>
+                                        <td>Người đàn ông mang tên Ove</td>
+                                        <td>Fredrik Backman</td>
+                                        <td>Văn học</td>
+                                        <td>145.000đ</td>
+                                        <td>50</td>
+                                        <td><span class="badge bg-success">Còn hàng</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-info"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8932000134749_1.jpg"
+                                                height="50"></td>
+                                        <td>Trường ca Achilles</td>
+                                        <td>Madeline Miller</td>
+                                        <td>Văn học</td>
+                                        <td>190.000đ</td>
+                                        <td>0</td>
+                                        <td><span class="badge bg-danger">Hết hàng</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-info"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8935235238978.jpg"
+                                                height="50"></td>
+                                        <td>MBA Bằng Hình</td>
+                                        <td>Jason Barron</td>
+                                        <td>Kinh tế</td>
+                                        <td>215.000đ</td>
+                                        <td>20</td>
+                                        <td><span class="badge bg-warning">Sắp hết</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-info"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_217480.jpg"
+                                                height="50"></td>
+                                        <td>Cây cam ngọt của tôi</td>
+                                        <td>José Mauro de Vasconcelos</td>
+                                        <td>Văn học</td>
+                                        <td>108.000đ</td>
+                                        <td>150</td>
+                                        <td><span class="badge bg-success">Còn hàng</span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-primary"><i
+                                                    class="bi bi-pencil-square"></i></button>
+                                            <button type="button" class="btn btn-sm btn-danger"><i
+                                                    class="bi bi-trash"></i></button>
+                                            <button type="button" class="btn btn-sm btn-info"><i
+                                                    class="bi bi-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Add Book -->
+        <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addBookModalLabel">Thêm sách mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="bookTitle" class="form-label">Tên sách</label>
+                                <input type="text" class="form-control" id="bookTitle" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="author" class="form-label">Tác giả</label>
+                                <input type="text" class="form-control" id="author" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="category" class="form-label">Danh mục</label>
+                                <select id="category" class="form-select" required>
+                                    <option selected disabled value="">Chọn...</option>
+                                    <option>Văn học</option>
+                                    <option>Kinh tế</option>
+                                    <option>Tâm lý học</option>
+                                    <option>Thiếu nhi</option>
+                                    <option>Tiểu sử</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="price" class="form-label">Giá</label>
+                                <input type="number" class="form-control" id="price" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="quantity" class="form-label">Số lượng</label>
+                                <input type="number" class="form-control" id="quantity" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="description" class="form-label">Mô tả</label>
+                                <textarea class="form-control" id="description" rows="3"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="bookCover" class="form-label">Hình ảnh</label>
+                                <input class="form-control" type="file" id="bookCover">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template JS Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="js/template.js"></script>
+</body>
+
+</html>
