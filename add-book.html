@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Page Title - BookStore Admin</title>
+    <title>Thêm sách mới - BookStore Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -31,6 +31,7 @@
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/add-book.css" rel="stylesheet">
 </head>
 
 <body>
@@ -43,22 +44,249 @@
     <!-- Main Content -->
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>Page Title</h1>
+            <h1>Thêm sách mới</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Page Title</li>
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="books-list.html">Quản lý sách</a></li>
+                    <li class="breadcrumb-item active">Thêm sách mới</li>
                 </ol>
             </nav>
         </div>
 
         <section class="section">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-12">
                     <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Your Content Here</h5>
-                            <p>This is a template page. Replace this content with your own.</p>
+                        <div class="card-body pt-3">
+                            <!-- Tabs -->
+                            <ul class="nav nav-tabs nav-tabs-bordered">
+                                <li class="nav-item">
+                                    <button class="nav-link active" data-bs-toggle="tab"
+                                        data-bs-target="#book-info">Thông tin sách</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#book-description">Mô
+                                        tả</button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#book-images">Hình
+                                        ảnh</button>
+                                </li>
+                            </ul>
+
+                            <form class="needs-validation" novalidate>
+                                <div class="tab-content pt-4">
+                                    <!-- Book Info Tab -->
+                                    <div class="tab-pane fade show active" id="book-info">
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label for="bookTitle" class="form-label">Tên sách <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="bookTitle" required>
+                                                <div class="invalid-feedback">Vui lòng nhập tên sách!</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="author" class="form-label">Tác giả <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="author" required>
+                                                <div class="invalid-feedback">Vui lòng nhập tên tác giả!</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="supplier" class="form-label">Nhà cung cấp <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="form-select" id="supplier" required>
+                                                    <option selected disabled value="">-- Chọn nhà cung cấp --</option>
+                                                    <option value="1">Nhà xuất bản Kim Đồng</option>
+                                                    <option value="2">Nhà xuất bản Trẻ</option>
+                                                    <option value="3">Nhà xuất bản Giáo Dục</option>
+                                                    <option value="4">Alpha Books</option>
+                                                    <option value="5">Nhã Nam</option>
+                                                    <option value="6">Fahasa</option>
+                                                </select>
+                                                <div class="invalid-feedback">Vui lòng chọn nhà cung cấp!</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label for="publisher" class="form-label">Nhà xuất bản</label>
+                                                <select class="form-select" id="publisher">
+                                                    <option selected disabled value="">-- Chọn nhà xuất bản --</option>
+                                                    <option value="1">Nhà xuất bản Kim Đồng</option>
+                                                    <option value="2">Nhà xuất bản Trẻ</option>
+                                                    <option value="3">Nhà xuất bản Giáo Dục</option>
+                                                    <option value="4">Nhà xuất bản Văn học</option>
+                                                    <option value="5">Nhà xuất bản Hội Nhà văn</option>
+                                                    <option value="6">Nhà xuất bản Lao Động</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="coverType" class="form-label">Hình thức bìa</label>
+                                                <select class="form-select" id="coverType">
+                                                    <option selected disabled value="">-- Chọn hình thức bìa --</option>
+                                                    <option value="1">Bìa cứng</option>
+                                                    <option value="2">Bìa mềm</option>
+                                                    <option value="3">Bìa gập</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="price" class="form-label">Giá bán <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="price" required>
+                                                    <span class="input-group-text">VNĐ</span>
+                                                </div>
+                                                <div class="invalid-feedback">Vui lòng nhập giá bán!</div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="publishYear" class="form-label">Năm xuất bản</label>
+                                                <input type="number" class="form-control" id="publishYear" min="1900"
+                                                    max="2099" placeholder="VD: 2023">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="language" class="form-label">Ngôn ngữ</label>
+                                                <select class="form-select" id="language">
+                                                    <option selected value="1">Tiếng Việt</option>
+                                                    <option value="2">Tiếng Anh</option>
+                                                    <option value="3">Song ngữ Việt - Anh</option>
+                                                    <option value="4">Tiếng Pháp</option>
+                                                    <option value="5">Tiếng Nhật</option>
+                                                    <option value="6">Tiếng Hàn</option>
+                                                    <option value="7">Tiếng Trung</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="weight" class="form-label">Trọng lượng (gram)</label>
+                                                <input type="number" class="form-control" id="weight"
+                                                    placeholder="VD: 350">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="size" class="form-label">Kích thước</label>
+                                                <input type="text" class="form-control" id="size"
+                                                    placeholder="VD: 14 x 20.5 cm">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="pageCount" class="form-label">Số trang</label>
+                                                <input type="number" class="form-control" id="pageCount"
+                                                    placeholder="VD: 256">
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="inventory" class="form-label">Số lượng <span
+                                                        class="text-danger">*</span></label>
+                                                <input type="number" class="form-control" id="inventory" required
+                                                    placeholder="VD: 100">
+                                                <div class="invalid-feedback">Vui lòng nhập số lượng tồn kho!</div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label for="category" class="form-label">Danh mục <span
+                                                        class="text-danger">*</span></label>
+                                                <select class="form-select" id="category" required>
+                                                    <option selected disabled value="">-- Chọn danh mục --</option>
+                                                    <option value="1">Văn học</option>
+                                                    <option value="2">Kinh tế</option>
+                                                    <option value="3">Tâm lý - Kỹ năng sống</option>
+                                                    <option value="4">Nuôi dạy con</option>
+                                                    <option value="5">Sách thiếu nhi</option>
+                                                    <option value="6">Tiểu sử - Hồi ký</option>
+                                                </select>
+                                                <div class="invalid-feedback">Vui lòng chọn danh mục!</div>
+                                            </div>
+                                        </div>
+                                        <div class="text-end mt-4">
+                                            <button type="button" class="btn btn-primary next-tab">Tiếp theo</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Book Description Tab -->
+                                    <div class="tab-pane fade" id="book-description">
+                                        <div class="mb-3">
+                                            <label for="shortDescription" class="form-label">Mô tả ngắn</label>
+                                            <textarea class="form-control" id="shortDescription" rows="3"
+                                                placeholder="Nhập mô tả ngắn về sách (tối đa 200 từ)"></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="fullDescription" class="form-label">Mô tả chi tiết <span
+                                                    class="text-danger">*</span></label>
+                                            <div id="editor" style="height: 300px;"></div>
+                                            <input type="hidden" id="fullDescription" required>
+                                            <div class="invalid-feedback">Vui lòng nhập mô tả chi tiết về sách!</div>
+                                        </div>
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button type="button" class="btn btn-secondary prev-tab">Quay lại</button>
+                                            <button type="button" class="btn btn-primary next-tab">Tiếp theo</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Book Images Tab -->
+                                    <div class="tab-pane fade" id="book-images">
+                                        <div class="row mb-4">
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Ảnh bìa sách <span
+                                                        class="text-danger">*</span></label>
+                                                <div class="image-upload-container">
+                                                    <div class="upload-area" id="coverImageUpload">
+                                                        <i class="bi bi-cloud-arrow-up fs-1"></i>
+                                                        <p>Kéo thả ảnh vào đây hoặc <span class="text-primary">Chọn
+                                                                tệp</span></p>
+                                                        <p class="text-muted small">JPG, PNG hoặc WEBP (max. 2MB)</p>
+                                                        <input type="file" id="coverImage" class="file-input"
+                                                            accept="image/*" required hidden>
+                                                    </div>
+                                                    <div id="coverPreview" class="image-preview"></div>
+                                                </div>
+                                                <div class="invalid-feedback">Vui lòng tải lên ảnh bìa sách!</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <label class="form-label fw-bold">Ảnh bìa sau (tùy chọn)</label>
+                                                <div class="image-upload-container">
+                                                    <div class="upload-area" id="backCoverImageUpload">
+                                                        <i class="bi bi-cloud-arrow-up fs-1"></i>
+                                                        <p>Kéo thả ảnh vào đây hoặc <span class="text-primary">Chọn
+                                                                tệp</span></p>
+                                                        <p class="text-muted small">JPG, PNG hoặc WEBP (max. 2MB)</p>
+                                                        <input type="file" id="backCoverImage" class="file-input"
+                                                            accept="image/*" hidden>
+                                                    </div>
+                                                    <div id="backCoverPreview" class="image-preview"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="additional-images mb-4">
+                                            <label class="form-label fw-bold">Ảnh bổ sung (tối đa 5 ảnh)</label>
+                                            <div class="upload-area" id="additionalImagesUpload">
+                                                <i class="bi bi-images fs-1"></i>
+                                                <p>Kéo thả nhiều ảnh vào đây hoặc <span class="text-primary">Chọn
+                                                        tệp</span>
+                                                </p>
+                                                <p class="text-muted small">JPG, PNG hoặc WEBP (max. 2MB/ảnh)</p>
+                                                <input type="file" id="additionalImages" class="file-input"
+                                                    accept="image/*" multiple hidden>
+                                            </div>
+                                            <div id="additionalPreview" class="multiple-image-preview mt-3"></div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mt-4">
+                                            <button type="button" class="btn btn-secondary prev-tab">Quay lại</button>
+                                            <div>
+                                                <button type="button" class="btn btn-secondary me-2">Hủy</button>
+                                                <button type="submit" class="btn btn-success">Lưu sách</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -82,6 +310,152 @@
     <!-- Template JS Files -->
     <script src="assets/js/main.js"></script>
     <script src="js/template.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize Quill editor
+            var quill = new Quill('#editor', {
+                theme: 'snow',
+                placeholder: 'Nhập mô tả chi tiết về sách...',
+                modules: {
+                    toolbar: [
+                        ['bold', 'italic', 'underline', 'strike'],
+                        ['blockquote', 'code-block'],
+                        [{ 'header': 1 }, { 'header': 2 }],
+                        [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                        [{ 'indent': '-1' }, { 'indent': '+1' }],
+                        [{ 'direction': 'rtl' }],
+                        [{ 'size': ['small', false, 'large', 'huge'] }],
+                        [{ 'color': [] }, { 'background': [] }],
+                        [{ 'align': [] }],
+                        ['clean']
+                    ]
+                }
+            });
+
+            // Save Quill content to hidden input when form submits
+            document.querySelector('form').addEventListener('submit', function () {
+                document.getElementById('fullDescription').value = quill.root.innerHTML;
+            });
+
+            // Tab navigation buttons
+            document.querySelectorAll('.next-tab').forEach(button => {
+                button.addEventListener('click', function () {
+                    const currentTab = this.closest('.tab-pane');
+                    const nextTabId = currentTab.nextElementSibling.id;
+                    document.querySelector(`[data-bs-target="#${nextTabId}"]`).click();
+                });
+            });
+
+            document.querySelectorAll('.prev-tab').forEach(button => {
+                button.addEventListener('click', function () {
+                    const currentTab = this.closest('.tab-pane');
+                    const prevTabId = currentTab.previousElementSibling.id;
+                    document.querySelector(`[data-bs-target="#${prevTabId}"]`).click();
+                });
+            });
+
+            // Image upload functionality
+            const setupImageUpload = (uploadAreaId, inputId, previewId, multiple = false) => {
+                const uploadArea = document.getElementById(uploadAreaId);
+                const input = document.getElementById(inputId);
+                const preview = document.getElementById(previewId);
+
+                uploadArea.addEventListener('click', () => input.click());
+
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('active');
+                });
+
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('active');
+                });
+
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('active');
+
+                    if (multiple) {
+                        handleFiles(Array.from(e.dataTransfer.files), preview);
+                    } else {
+                        handleFile(e.dataTransfer.files[0], preview);
+                    }
+                });
+
+                input.addEventListener('change', () => {
+                    if (multiple) {
+                        handleFiles(Array.from(input.files), preview);
+                    } else {
+                        handleFile(input.files[0], preview);
+                    }
+                });
+            };
+
+            const handleFile = (file, preview) => {
+                if (!file || !file.type.startsWith('image/')) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.innerHTML = '';
+                    const img = document.createElement('div');
+                    img.className = 'preview-item';
+                    img.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview">
+                        <button type="button" class="remove-btn"><i class="bi bi-x"></i></button>
+                    `;
+                    preview.appendChild(img);
+
+                    img.querySelector('.remove-btn').addEventListener('click', () => {
+                        preview.innerHTML = '';
+                    });
+                };
+                reader.readAsDataURL(file);
+            };
+
+            const handleFiles = (files, preview) => {
+                if (!files.length) return;
+
+                // Limit to 5 files
+                const filesToProcess = files.slice(0, 5);
+
+                filesToProcess.forEach(file => {
+                    if (!file.type.startsWith('image/')) return;
+
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const img = document.createElement('div');
+                        img.className = 'preview-item';
+                        img.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                            <button type="button" class="remove-btn"><i class="bi bi-x"></i></button>
+                        `;
+                        preview.appendChild(img);
+
+                        img.querySelector('.remove-btn').addEventListener('click', () => {
+                            img.remove();
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                });
+            };
+
+            // Setup image uploads
+            setupImageUpload('coverImageUpload', 'coverImage', 'coverPreview');
+            setupImageUpload('backCoverImageUpload', 'backCoverImage', 'backCoverPreview');
+            setupImageUpload('additionalImagesUpload', 'additionalImages', 'additionalPreview', true);
+
+            // Form validation
+            const form = document.querySelector('.needs-validation');
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    </script>
 </body>
 
 </html>

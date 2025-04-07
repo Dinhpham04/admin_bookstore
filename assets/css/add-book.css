@@ -1,0 +1,161 @@
+/* Styles for Add Book page */
+
+/* Upload Area Styles */
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.upload-area:hover,
+.upload-area.active {
+    background-color: #f0f3ff;
+    border-color: #4154f1;
+}
+
+.upload-area i {
+    color: #4154f1;
+    margin-bottom: 0.5rem;
+}
+
+.upload-area p {
+    margin-bottom: 0.25rem;
+}
+
+/* Image Preview Styles */
+.image-preview {
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+.multiple-image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preview-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ebeef4;
+    margin-bottom: 10px;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #dc3545;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.remove-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #b02a37;
+}
+
+/* Form Styles */
+.form-label {
+    font-weight: 500;
+    color: #012970;
+}
+
+/* Tab Navigation Styles */
+.nav-tabs-bordered .nav-link {
+    font-weight: 500;
+    padding: 0.75rem 1.25rem;
+}
+
+.tab-content {
+    padding-top: 1.5rem;
+}
+
+/* Editor Styles */
+.ql-container {
+    min-height: 200px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Required Field Indicator */
+.text-danger {
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .preview-item {
+        width: 100px;
+        height: 100px;
+    }
+
+    .upload-area {
+        padding: 1.5rem;
+    }
+
+    .tab-pane {
+        padding: 1rem 0;
+    }
+}
+
+/* Transitions for Tabs */
+.tab-pane {
+    transition: opacity 0.15s linear;
+}
+
+.tab-pane.show {
+    opacity: 1;
+}
+
+.tab-pane {
+    opacity: 0;
+}
+
+/* Custom styles for the buttons */
+.btn-primary {
+    background-color: #4154f1;
+    border-color: #4154f1;
+}
+
+.btn-primary:hover {
+    background-color: #364af3;
+    border-color: #364af3;
+}
+
+.btn-success {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+/* Image upload container */
+.image-upload-container {
+    margin-bottom: 1.5rem;
+}
