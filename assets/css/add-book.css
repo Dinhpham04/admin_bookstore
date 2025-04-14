@@ -1,5 +1,10 @@
 /* Styles for Add Book page */
 
+/* Global font-family setting */
+* {
+    font-family: 'Nunito', sans-serif;
+}
+
 /* Upload Area Styles */
 .upload-area {
     border: 2px dashed #ccc;
