@@ -81,3 +81,50 @@
  .table tbody tr:hover {
      background-color: #f8f9fa;
  }
+
+ /* Product Links */
+ .product-link {
+     color: #012970;
+     text-decoration: none;
+     transition: color 0.2s ease;
+ }
+
+ .product-link:hover {
+     color: #4154f1;
+     text-decoration: none;
+ }
+
+ .product-link strong {
+     display: block;
+     line-height: 1.4;
+ }
+
+ /* Clickable Rows */
+ .clickable-row {
+     transition: background-color 0.2s ease;
+ }
+
+ .clickable-row:hover {
+     background-color: #f8f9fa !important;
+     cursor: pointer;
+ }
+
+ .product-name {
+     color: #012970;
+     font-weight: 500;
+ }
+
+ .clickable-row:hover .product-name {
+     color: #4154f1;
+ }
+
+ /* Prevent text selection on row click */
+ .clickable-row td {
+     user-select: none;
+ }
+
+ /* Keep button interactions */
+ .clickable-row .btn {
+     position: relative;
+     z-index: 2;
+ }

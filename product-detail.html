@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Product Detail - BookStore Admin</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+    <!-- Swiper CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="../assets/css/product-detail.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Product Detail</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="products.html">Products</a></li>
+                    <li class="breadcrumb-item active">Product Detail</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section">
+            <div class="row">
+                <!-- Product Images -->
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="product-gallery">
+                                <div class="swiper product-swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg"
+                                                alt="Nhà giả kim" class="img-fluid">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8934974182375.jpg"
+                                                alt="Người đàn ông mang tên Ove" class="img-fluid">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8932000134749_1.jpg"
+                                                alt="Trường ca Achilles" class="img-fluid">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8935235238978.jpg"
+                                                alt="MBA Bằng Hình" class="img-fluid">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_217480.jpg"
+                                                alt="Cây cam ngọt của tôi" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+
+                                <!-- Thumbnail Navigation -->
+                                <div class="swiper product-thumbs mt-3">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_195509_1_36793.jpg"
+                                                alt="Nhà giả kim">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8934974182375.jpg"
+                                                alt="Người đàn ông mang tên Ove">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8932000134749_1.jpg"
+                                                alt="Trường ca Achilles">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/8/9/8935235238978.jpg"
+                                                alt="MBA Bằng Hình">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="https://cdn1.fahasa.com/media/catalog/product/i/m/image_217480.jpg"
+                                                alt="Cây cam ngọt của tôi">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="col-lg-7">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="product-info">
+                                <h2 class="product-title">Nước Mỹ Trong Mắt Trump - The United States Of Trump : How The
+                                    President Really Sees America</h2>
+
+                                <div class="product-meta">
+                                    <div class="rating">
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                        <i class="bi bi-star text-warning"></i>
+                                        <span class="rating-text">(0 đánh giá)</span>
+                                    </div>
+                                    <div class="sales">
+                                        <span>Đã bán: 19</span>
+                                    </div>
+                                </div>
+
+                                <div class="product-price">
+                                    <span class="current-price">168.300₫</span>
+                                    <span class="original-price">198.000₫</span>
+                                    <span class="discount">-15%</span>
+                                </div>
+
+                                <div class="stock-status">
+                                    <span class="status-text">63 nhà sách còn hàng</span>
+                                </div>
+
+                                <div class="product-details">
+                                    <div class="detail-item">
+                                        <span class="label">Mã hàng:</span>
+                                        <span class="value">8934974169697</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Tên Nhà Cung Cấp:</span>
+                                        <span class="value">NXB Trẻ</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Tác giả:</span>
+                                        <span class="value">Nguyễn Đức Huy, Trần Hà My, Phạm Quốc Nam, Đặng Phương
+                                            Thảo</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">NXB:</span>
+                                        <span class="value">NXB Trẻ</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Năm XB:</span>
+                                        <span class="value">2020</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Trọng lượng (gr):</span>
+                                        <span class="value">400</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Kích Thước Bao Bì:</span>
+                                        <span class="value">23 x 15.5 cm</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Số trang:</span>
+                                        <span class="value">392</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Hình thức:</span>
+                                        <span class="value">Bìa Mềm</span>
+                                    </div>
+                                </div>
+
+                                <div class="product-description">
+                                    <h5>Mô tả sản phẩm</h5>
+                                    <div class="description-content collapsed">
+                                        <p>Nước Mỹ trong mắt Trump là cuốn sách mới nhất của B.O'Reilly, xuất bản cuối
+                                            2019, được viết dưới dạng kể chuyện từ những cuộc phỏng vấn trực tiếp của
+                                            O'Reilly với Tổng thống Mỹ D.Trump và gia đình theo mạch thời gian kèm theo
+                                            một số bình luận của tác giả; cũng như nghiên cứu của tác giả về các chủ đề
+                                            liên quan.</p>
+                                        <p>O'Reilly đã tìm cách lý giải những động lực thúc đẩy Donald Trump trong cuộc
+                                            sống và cả thế nên là trong quyết định tạm gác lại những xa hoa phú quý của
+                                            một ông trùm bất động sản để tuyên bố tranh cử Tổng thống; chỉ ra sức hút
+                                            của ông Trump đối với cử tri Mỹ trong năm 2016. Những tập luận và khung phân
+                                            tích của tác giả chắc chắn sẽ có ích trong phân tích cuộc tổng tuyển cử Mỹ
+                                            năm 2020.</p>
+                                        <p>Về tác giả: B O'Reilly có hơn 20 năm là người dẫn chương trình và bình luận
+                                            thời sự của Fox News, đã từng quan thuộc với nhiều độc giả Việt Nam thông
+                                            qua loạt sách-Killing, kể về những tính huống đặc biệt xung quanh cái chết
+                                            của các nhân vật lịch sử.</p>
+                                    </div>
+                                    <button class="btn-read-more">Xem thêm <i class="bi bi-chevron-down"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- Swiper JS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Template JS Files -->
+    <script src="../js/template.js"></script>
+    <script src="../js/pages/product-detail.js"></script>
+</body>
+
+</html>
