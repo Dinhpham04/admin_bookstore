@@ -1,0 +1,232 @@
+/* Progress bar nhiều bước */
+.minw-120 {
+    min-width: 120px;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.progress {
+    background: #e9ecef;
+    border-radius: 8px;
+}
+
+.progress-bar.bg-success {
+    background: linear-gradient(90deg, #1bbf83 60%, #1bbf83 100%);
+}
+
+.progress-bar.bg-warning {
+    background: linear-gradient(90deg, #ffb300 60%, #ffb300 100%);
+}
+
+/* Badge trạng thái */
+.badge.bg-success {
+    background: #d2f7e5 !important;
+    color: #1bbf83 !important;
+    font-weight: 600;
+}
+
+.badge.bg-warning {
+    background: #fff7e6 !important;
+    color: #ffb300 !important;
+    font-weight: 600;
+}
+
+.badge.bg-secondary {
+    background: #e6eaf3 !important;
+    color: #4a5a7a !important;
+    font-weight: 600;
+}
+
+/* Card, bảng, sidebar */
+.card {
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    border: none;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #012970;
+}
+
+.table thead th {
+    color: #8c8c8c;
+    font-weight: 500;
+    background: #f8f6f7;
+    border: none;
+}
+
+.table td,
+.table th {
+    border: none;
+}
+
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Product image */
+.order-product-list img {
+    border-radius: 8px;
+    border: 1px solid #ebeef4;
+    background: #fff;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    margin-left: 24px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e6eaf3;
+}
+
+.timeline-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 16px;
+    position: absolute;
+    left: -24px;
+    top: 0;
+    z-index: 1;
+}
+
+.timeline li {
+    position: relative;
+    margin-bottom: 32px;
+    padding-left: 24px;
+}
+
+.timeline li:last-child {
+    margin-bottom: 0;
+}
+
+/* Sidebar info */
+.card .d-flex.justify-content-between {
+    font-size: 15px;
+}
+
+.card .fw-bold {
+    font-size: 16px;
+}
+
+/* Font size đồng đều và nổi bật */
+.main .pagetitle h1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.order-id,
+.order-total,
+.order-summary .fw-bold,
+.order-customer {
+    font-size: 18px;
+    font-weight: 700;
+    color: #012970;
+}
+
+.order-product-list td span.product-name,
+.order-product-list td strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order-product-list td {
+    font-size: 14px;
+}
+
+.order-summary span,
+.order-summary .order-subtotal,
+.order-summary .order-discount,
+.order-summary .order-delivery,
+.order-summary .order-tax {
+    font-size: 14px;
+}
+
+.badge,
+.order-status,
+.order-payment-status {
+    font-size: 14px;
+}
+
+.timeline li,
+.timeline li span,
+.timeline li .text-muted {
+    font-size: 14px;
+}
+
+.text-muted,
+.small,
+.order-date,
+.order-email,
+.order-phone,
+.order-shipping,
+.order-billing {
+    font-size: 14px !important;
+}
+
+/* Đảm bảo các label nhỏ, mô tả nhỏ đều 14px */
+.table th,
+.table td,
+.alert,
+.order-product-list .text-muted.small {
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+
+    .col-lg-8,
+    .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .card {
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .order-product-list img {
+        width: 28px !important;
+        height: 28px !important;
+    }
+
+    .timeline-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+        left: -18px;
+    }
+
+    .timeline {
+        margin-left: 16px;
+    }
+
+    .main .pagetitle h1 {
+        font-size: 18px;
+    }
+
+    .card-title,
+    .order-id,
+    .order-total,
+    .order-customer {
+        font-size: 15px;
+    }
+}
