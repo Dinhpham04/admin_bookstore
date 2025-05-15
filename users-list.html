@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Danh sách người dùng - BookStore Admin</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/users-list.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Danh sách người dùng</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item">Quản lý người dùng</li>
+                    <li class="breadcrumb-item active">Danh sách người dùng</li>
+                </ol>
+            </nav>
+        </div>
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <h5 class="card-title">Danh sách người dùng</h5>
+
+                            <!-- Toolbar -->
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#addUserModal">
+                                        <i class="bi bi-plus-lg"></i> Thêm người dùng mới
+                                    </button>
+                                    <button type="button" class="btn btn-success ms-2">
+                                        <i class="bi bi-file-earmark-excel"></i> Xuất Excel
+                                    </button>
+                                    <button type="button" class="btn btn-secondary ms-2">
+                                        <i class="bi bi-printer"></i> In
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select me-2" style="width: auto;">
+                                        <option value="">-- Vai trò --</option>
+                                        <option value="1">Admin</option>
+                                        <option value="2">Quản lý</option>
+                                        <option value="3">Nhân viên</option>
+                                        <option value="4">Khách hàng</option>
+                                    </select>
+                                    <select class="form-select me-2" style="width: auto;">
+                                        <option value="">-- Trạng thái --</option>
+                                        <option value="1">Hoạt động</option>
+                                        <option value="2">Khóa</option>
+                                        <option value="3">Chờ xác nhận</option>
+                                    </select>
+                                    <div class="input-group" style="width: 300px;">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm...">
+                                        <button class="btn btn-outline-secondary" type="button">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table with stripped rows -->
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="50">#</th>
+                                            <th scope="col" width="80">Ảnh</th>
+                                            <th scope="col">Họ tên</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Số điện thoại</th>
+                                            <th scope="col">Vai trò</th>
+                                            <th scope="col">Ngày tạo</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col" class="text-center">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><img src="assets/img/messages-1.jpg" class="rounded-circle" width="40"
+                                                    height="40" alt="User"></td>
+                                            <td><strong>Nguyễn Văn A</strong></td>
+                                            <td>nguyenvana@example.com</td>
+                                            <td>0123456789</td>
+                                            <td><span class="badge bg-primary">Admin</span></td>
+                                            <td>01/01/2024</td>
+                                            <td><span class="badge bg-success">Hoạt động</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+
+                                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><img src="assets/img/messages-2.jpg" class="rounded-circle" width="40"
+                                                    height="40" alt="User"></td>
+                                            <td><strong>Trần Thị B</strong></td>
+                                            <td>tranthib@example.com</td>
+                                            <td>0987654321</td>
+                                            <td><span class="badge bg-info">Quản lý</span></td>
+                                            <td>02/01/2024</td>
+                                            <td><span class="badge bg-success">Hoạt động</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+
+                                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><img src="assets/img/messages-3.jpg" class="rounded-circle" width="40"
+                                                    height="40" alt="User"></td>
+                                            <td><strong>Lê Văn C</strong></td>
+                                            <td>levanc@example.com</td>
+                                            <td>0123456788</td>
+                                            <td><span class="badge bg-warning text-dark">Nhân viên</span></td>
+                                            <td>03/01/2024</td>
+                                            <td><span class="badge bg-danger">Khóa</span></td>
+                                            <td class="text-center">
+                                                <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </button>
+
+                                                <button class="btn btn-sm btn-danger" title="Xóa">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div class="text-muted">Hiển thị 1 đến 3 của 50 mục</div>
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Add User -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">Thêm người dùng mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label">Họ <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="firstName" required>
+                                <div class="invalid-feedback">Vui lòng nhập họ!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Tên <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="lastName" required>
+                                <div class="invalid-feedback">Vui lòng nhập tên!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="invalid-feedback">Vui lòng nhập email hợp lệ!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Số điện thoại <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="phone" required>
+                                <div class="invalid-feedback">Vui lòng nhập số điện thoại!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Mật khẩu <span
+                                        class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" required>
+                                <div class="invalid-feedback">Vui lòng nhập mật khẩu!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="confirmPassword" class="form-label">Xác nhận mật khẩu <span
+                                        class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                                <div class="invalid-feedback">Vui lòng xác nhận mật khẩu!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="role" class="form-label">Vai trò <span class="text-danger">*</span></label>
+                                <select class="form-select" id="role" required>
+                                    <option selected disabled value="">-- Chọn vai trò --</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Quản lý</option>
+                                    <option value="3">Nhân viên</option>
+                                    <option value="4">Khách hàng</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn vai trò!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="status" class="form-label">Trạng thái <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="status" required>
+                                    <option selected disabled value="">-- Chọn trạng thái --</option>
+                                    <option value="1">Hoạt động</option>
+                                    <option value="2">Khóa</option>
+                                    <option value="3">Chờ xác nhận</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn trạng thái!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="avatar" class="form-label">Ảnh đại diện</label>
+                                <input class="form-control" type="file" id="avatar" accept="image/*">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Edit User -->
+        <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editUserModalLabel">Chỉnh sửa thông tin người dùng</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6">
+                                <label for="editFirstName" class="form-label">Họ <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="editFirstName" required>
+                                <div class="invalid-feedback">Vui lòng nhập họ!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editLastName" class="form-label">Tên <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="editLastName" required>
+                                <div class="invalid-feedback">Vui lòng nhập tên!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editEmail" class="form-label">Email <span
+                                        class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="editEmail" required>
+                                <div class="invalid-feedback">Vui lòng nhập email hợp lệ!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editPhone" class="form-label">Số điện thoại <span
+                                        class="text-danger">*</span></label>
+                                <input type="tel" class="form-control" id="editPhone" required>
+                                <div class="invalid-feedback">Vui lòng nhập số điện thoại!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editRole" class="form-label">Vai trò <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="editRole" required>
+                                    <option selected disabled value="">-- Chọn vai trò --</option>
+                                    <option value="1">Admin</option>
+                                    <option value="2">Quản lý</option>
+                                    <option value="3">Nhân viên</option>
+                                    <option value="4">Khách hàng</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn vai trò!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editStatus" class="form-label">Trạng thái <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="editStatus" required>
+                                    <option selected disabled value="">-- Chọn trạng thái --</option>
+                                    <option value="1">Hoạt động</option>
+                                    <option value="2">Khóa</option>
+                                    <option value="3">Chờ xác nhận</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn trạng thái!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="editAvatar" class="form-label">Ảnh đại diện</label>
+                                <input class="form-control" type="file" id="editAvatar" accept="image/*">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/pages/users-list.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form validation
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+
+            // Edit user button click handler
+            document.querySelectorAll('.btn-edit').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent row click event
+                    // Get user data from the row
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:nth-child(3) strong').innerText.split(' ');
+                    const email = row.querySelector('td:nth-child(4)').innerText;
+                    const phone = row.querySelector('td:nth-child(5)').innerText;
+                    const role = row.querySelector('td:nth-child(6) span').innerText;
+                    const status = row.querySelector('td:nth-child(8) span').innerText;
+
+                    // Set values in the form
+                    document.getElementById('editFirstName').value = name[0];
+                    document.getElementById('editLastName').value = name[1];
+                    document.getElementById('editEmail').value = email;
+                    document.getElementById('editPhone').value = phone;
+
+                    // Set role
+                    const roleSelect = document.getElementById('editRole');
+                    for (let i = 0; i < roleSelect.options.length; i++) {
+                        if (roleSelect.options[i].text === role) {
+                            roleSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+
+                    // Set status
+                    const statusSelect = document.getElementById('editStatus');
+                    for (let i = 0; i < statusSelect.options.length; i++) {
+                        if (statusSelect.options[i].text === status) {
+                            statusSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+
+                    // Show the modal
+                    const editModal = new bootstrap.Modal(document.getElementById('editUserModal'));
+                    editModal.show();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -152,41 +152,171 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="card-title mb-0">Danh sách đơn hàng</h5>
+            <div class="card-body pt-3">
+                <h5 class="card-title">Danh sách đơn hàng</h5>
+
+                <!-- Toolbar -->
+                <div class="d-flex justify-content-between mb-4">
+                    <div>
+                        <button type="button" class="btn btn-success ms-2">
+                            <i class="bi bi-file-earmark-excel"></i> Xuất Excel
+                        </button>
+                        <button type="button" class="btn btn-secondary ms-2">
+                            <i class="bi bi-printer"></i> In
+                        </button>
+                    </div>
                     <div class="d-flex align-items-center">
-                        <input id="order-search" type="text" class="form-control form-control-sm me-2"
-                            style="width: 180px;" placeholder="Tìm Order ID...">
-                        <select class="form-control-sm me-2" style="width: auto;">
-                            <option value="1" selected="">Hôm nay</option>
-                            <option value="2">Tuần này</option>
-                            <option value="3">Tháng này</option>
+                        <select class="form-select me-2" id="status-filter" style="width: auto;">
+                            <option value="">-- Trạng thái --</option>
+                            <option value="Chờ xác nhận">Chờ xác nhận</option>
+                            <option value="Đã xác nhận">Đã xác nhận</option>
+                            <option value="Đang giao hàng">Đang giao hàng</option>
+                            <option value="Đã giao hàng">Đã giao hàng</option>
+                            <option value="Đã hủy">Đã hủy</option>
                         </select>
+                        <select class="form-select me-2" id="payment-filter" style="width: auto;">
+                            <option value="">-- Phương thức thanh toán --</option>
+                            <option value="Tiền mặt">Tiền mặt</option>
+                            <option value="Chuyển khoản">Chuyển khoản</option>
+                            <option value="Thẻ tín dụng">Thẻ tín dụng</option>
+                        </select>
+                        <div class="input-group" style="width: 300px;">
+                            <input type="text" class="form-control" id="order-search" placeholder="Tìm kiếm...">
+                            <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Table with stripped rows -->
                 <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead class="table-light">
+                    <table class="table table-hover">
+                        <thead>
                             <tr>
-                                <th>Order ID</th>
-                                <th>Created at</th>
-                                <th>Customer</th>
-                                <th>Priority</th>
-                                <th>Total</th>
-                                <th>Payment Status</th>
-                                <th>Items</th>
-                                <th>Delivery Number</th>
-                                <th>Order Status</th>
-                                <th>Action</th>
+                                <th scope="col" width="50">#</th>
+                                <th scope="col">Mã đơn hàng</th>
+                                <th scope="col">Khách hàng</th>
+                                <th scope="col">Ngày đặt</th>
+                                <th scope="col">Tổng tiền</th>
+                                <th scope="col">Phương thức TT</th>
+                                <th scope="col">Trạng thái</th>
+                                <th scope="col" class="text-center">Thao tác</th>
                             </tr>
                         </thead>
-                        <tbody id="orders-tbody">
-                            <!-- Dữ liệu đơn hàng sẽ được sinh động bằng JS -->
+                        <tbody>
+                            <tr class="order-row" data-order-id="ORD001">
+                                <td>1</td>
+                                <td><strong>#ORD001</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/img/messages-1.jpg" class="rounded-circle me-2" width="32"
+                                            height="32" alt="User">
+                                        <div>
+                                            <div class="fw-bold">Nguyễn Văn A</div>
+                                            <small class="text-muted">nguyenvana@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>01/01/2024</td>
+                                <td>1.250.000₫</td>
+                                <td><span class="badge bg-info">Chuyển khoản</span></td>
+                                <td><span class="badge bg-warning text-dark">Chờ xác nhận</span></td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-info" title="Xem chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" title="Xóa">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="order-row" data-order-id="ORD002">
+                                <td>2</td>
+                                <td><strong>#ORD002</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/img/messages-2.jpg" class="rounded-circle me-2" width="32"
+                                            height="32" alt="User">
+                                        <div>
+                                            <div class="fw-bold">Trần Thị B</div>
+                                            <small class="text-muted">tranthib@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>02/01/2024</td>
+                                <td>850.000₫</td>
+                                <td><span class="badge bg-success">Tiền mặt</span></td>
+                                <td><span class="badge bg-primary">Đang giao hàng</span></td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-info" title="Xem chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" title="Xóa">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="order-row" data-order-id="ORD003">
+                                <td>3</td>
+                                <td><strong>#ORD003</strong></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="assets/img/messages-3.jpg" class="rounded-circle me-2" width="32"
+                                            height="32" alt="User">
+                                        <div>
+                                            <div class="fw-bold">Lê Văn C</div>
+                                            <small class="text-muted">levanc@example.com</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>03/01/2024</td>
+                                <td>2.150.000₫</td>
+                                <td><span class="badge bg-warning text-dark">Thẻ tín dụng</span></td>
+                                <td><span class="badge bg-success">Đã giao hàng</span></td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-primary btn-edit" title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-info" title="Xem chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" title="Xóa">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
-                <div id="orders-pagination" class="mt-3"></div>
+
+                <!-- Pagination -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <div class="text-muted">Hiển thị 1 đến 3 của 50 mục</div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div>
         <!-- End Main Content -->
@@ -206,6 +336,27 @@
     <script src="assets/js/main.js"></script>
     <script src="js/template.js"></script>
     <script src="js/pages/order.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add click event listener to all order rows
+            const orderRows = document.querySelectorAll('.order-row');
+            orderRows.forEach(row => {
+                row.addEventListener('click', function (e) {
+                    // Prevent click if clicking on action buttons
+                    if (e.target.closest('.btn')) {
+                        return;
+                    }
+
+                    const orderId = this.getAttribute('data-order-id');
+                    // Redirect to order detail page with order ID
+                    window.location.href = `order-detail.html?id=${orderId}`;
+                });
+
+                // Add hover effect
+                row.style.cursor = 'pointer';
+            });
+        });
+    </script>
 </body>
 
 </html>

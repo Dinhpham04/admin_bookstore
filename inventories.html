@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Quản lý tồn kho - BookStore Admin</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/inventories.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main" class="main">
+        <div class="pagetitle">
+            <h1>Quản lý tồn kho</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Trang chủ</a></li>
+                    <li class="breadcrumb-item">Quản lý</li>
+                    <li class="breadcrumb-item active">Tồn kho</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Inventory Stats -->
+        <div class="row g-3 mb-4 inventory-stats">
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="icon-box bg-primary">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h6>Tổng sản phẩm</h6>
+                            <h3>3,521</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="icon-box bg-success">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h6>Sản phẩm đủ tồn</h6>
+                            <h3>2,890</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="icon-box bg-warning">
+                            <i class="bi bi-exclamation-triangle"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h6>Sản phẩm tồn thấp</h6>
+                            <h3>231</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="icon-box bg-danger">
+                            <i class="bi bi-x-circle"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h6>Sản phẩm hết hàng</h6>
+                            <h3>400</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body pt-3">
+                            <h5 class="card-title">Danh sách sản phẩm</h5>
+
+                            <!-- Toolbar -->
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                                        data-bs-target="#importStockModal">
+                                        <i class="bi bi-box-arrow-in-down"></i> Nhập kho
+                                    </button>
+                                    <button type="button" class="btn btn-secondary ms-2">
+                                        <i class="bi bi-file-earmark-excel"></i> Xuất Excel
+                                    </button>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <select class="form-select me-2" id="category-filter" style="width: auto;">
+                                        <option value="">-- Thể loại --</option>
+                                        <option value="Tiểu thuyết">Tiểu thuyết</option>
+                                        <option value="Kinh tế">Kinh tế</option>
+                                        <option value="Kỹ năng">Kỹ năng</option>
+                                        <option value="Văn học">Văn học</option>
+                                        <option value="Thiếu nhi">Thiếu nhi</option>
+                                    </select>
+                                    <select class="form-select me-2" id="stock-status-filter" style="width: auto;">
+                                        <option value="">-- Trạng thái tồn --</option>
+                                        <option value="Đủ">Đủ</option>
+                                        <option value="Thấp">Thấp</option>
+                                        <option value="Hết">Hết</option>
+                                    </select>
+                                    <div class="input-group" style="width: 300px;">
+                                        <input type="text" class="form-control" id="product-search"
+                                            placeholder="Tìm kiếm sách...">
+                                        <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table with stripped rows -->
+                            <div class="table-responsive">
+                                <table class="table table-hover product-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" width="50">#</th>
+                                            <th scope="col">Mã sách</th>
+                                            <th scope="col">Tên sách</th>
+                                            <th scope="col">Tác giả</th>
+                                            <th scope="col">Thể loại</th>
+                                            <th scope="col">Tồn kho</th>
+                                            <th scope="col">Giá nhập</th>
+                                            <th scope="col">Giá bán</th>
+                                            <th scope="col">Trạng thái</th>
+                                            <th scope="col" class="text-center">Thao tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr data-book-id="1" data-min-stock="10" data-avg-import-price="50000">
+                                            <td>1</td>
+                                            <td>#BK-001</td>
+                                            <td>Đắc nhân tâm</td>
+                                            <td>Dale Carnegie</td>
+                                            <td>Kỹ năng</td>
+                                            <td>150</td>
+                                            <td>50,000</td>
+                                            <td>75,000</td>
+                                            <td><span class="badge bg-success">Đủ</span></td>
+                                            <td class="text-center action-buttons">
+                                                <button class="btn btn-sm btn-success btn-import" title="Nhập kho">
+                                                    <i class="bi bi-box-arrow-in-down"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-book-id="2" data-min-stock="5" data-avg-import-price="45000">
+                                            <td>2</td>
+                                            <td>#BK-002</td>
+                                            <td>Nhà giả kim</td>
+                                            <td>Paulo Coelho</td>
+                                            <td>Tiểu thuyết</td>
+                                            <td>5</td>
+                                            <td>45,000</td>
+                                            <td>65,000</td>
+                                            <td><span class="badge bg-warning">Thấp</span></td>
+                                            <td class="text-center action-buttons">
+                                                <button class="btn btn-sm btn-success btn-import" title="Nhập kho">
+                                                    <i class="bi bi-box-arrow-in-down"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr data-book-id="3" data-min-stock="8" data-avg-import-price="60000">
+                                            <td>3</td>
+                                            <td>#BK-003</td>
+                                            <td>Tuổi trẻ đáng giá bao nhiêu</td>
+                                            <td>Rosie Nguyễn</td>
+                                            <td>Kỹ năng</td>
+                                            <td>0</td>
+                                            <td>60,000</td>
+                                            <td>89,000</td>
+                                            <td><span class="badge bg-danger">Hết</span></td>
+                                            <td class="text-center action-buttons">
+                                                <button class="btn btn-sm btn-success btn-import" title="Nhập kho">
+                                                    <i class="bi bi-box-arrow-in-down"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <div class="d-flex justify-content-between align-items-center mt-4">
+                                <div class="text-muted">Hiển thị 1 đến 3 của 50 mục</div>
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <span aria-hidden="true">&laquo;</span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal Add Product -->
+        <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModalLabel">Thêm sản phẩm mới</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-6">
+                                <label for="productName" class="form-label">Tên sản phẩm <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="productName" required>
+                                <div class="invalid-feedback">Vui lòng nhập tên sản phẩm!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productCategory" class="form-label">Danh mục <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="productCategory" required>
+                                    <option selected disabled value="">-- Chọn danh mục --</option>
+                                    <option value="Sách">Sách</option>
+                                    <option value="Văn phòng phẩm">Văn phòng phẩm</option>
+                                    <option value="Đồ chơi">Đồ chơi</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn danh mục!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productUnit" class="form-label">Đơn vị <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="productUnit" required>
+                                <div class="invalid-feedback">Vui lòng nhập đơn vị!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productQuantity" class="form-label">Số lượng <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="productQuantity" required>
+                                <div class="invalid-feedback">Vui lòng nhập số lượng!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productImportPrice" class="form-label">Giá nhập <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="productImportPrice" required>
+                                <div class="invalid-feedback">Vui lòng nhập giá nhập!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="productSalePrice" class="form-label">Giá bán <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="productSalePrice" required>
+                                <div class="invalid-feedback">Vui lòng nhập giá bán!</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="minStock" class="form-label">Tồn tối thiểu <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="minStock" required>
+                                <div class="invalid-feedback">Vui lòng nhập số lượng tồn tối thiểu!</div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Import Stock -->
+        <div class="modal fade" id="importStockModal" tabindex="-1" aria-labelledby="importStockModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="importStockModalLabel">Nhập kho</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <div class="col-12">
+                                <label for="importProduct" class="form-label">Sách <span
+                                        class="text-danger">*</span></label>
+                                <select class="form-select" id="importProduct" required>
+                                    <option selected disabled value="">-- Chọn sách --</option>
+                                    <option value="1">Đắc nhân tâm - Dale Carnegie</option>
+                                    <option value="2">Nhà giả kim - Paulo Coelho</option>
+                                    <option value="3">Tuổi trẻ đáng giá bao nhiêu - Rosie Nguyễn</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn sách!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="importQuantity" class="form-label">Số lượng nhập <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="importQuantity" required min="1">
+                                <div class="invalid-feedback">Vui lòng nhập số lượng!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="importPrice" class="form-label">Giá nhập <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="importPrice" required min="0">
+                                <div class="invalid-feedback">Vui lòng nhập giá nhập!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="importNote" class="form-label">Ghi chú</label>
+                                <textarea class="form-control" id="importNote" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" id="saveImportBtn">Nhập kho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Quick Import -->
+        <div class="modal fade" id="quickImportModal" tabindex="-1" aria-labelledby="quickImportModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="quickImportModalLabel">Nhập kho nhanh</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3 needs-validation" novalidate>
+                            <input type="hidden" id="quickImportBookId">
+                            <div class="col-12">
+                                <label class="form-label">Sách</label>
+                                <input type="text" class="form-control" id="quickImportBookName" readonly>
+                            </div>
+                            <div class="col-12">
+                                <label for="quickImportQuantity" class="form-label">Số lượng nhập <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="quickImportQuantity" required min="1">
+                                <div class="invalid-feedback">Vui lòng nhập số lượng!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="quickImportPrice" class="form-label">Giá nhập <span
+                                        class="text-danger">*</span></label>
+                                <input type="number" class="form-control" id="quickImportPrice" required min="0">
+                                <div class="invalid-feedback">Vui lòng nhập giá nhập!</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="quickImportNote" class="form-label">Ghi chú</label>
+                                <textarea class="form-control" id="quickImportNote" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="button" class="btn btn-primary" id="saveQuickImportBtn">Nhập kho</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/pages/inventories.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form validation
+            const forms = document.querySelectorAll('.needs-validation');
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+
+            // Edit product button click handler
+            document.querySelectorAll('.btn-edit').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent row click event
+                    // Get product data from the row
+                    const row = this.closest('tr');
+                    const name = row.querySelector('td:nth-child(3)').textContent;
+                    const category = row.querySelector('td:nth-child(4)').textContent;
+                    const stock = row.querySelector('td:nth-child(5)').textContent;
+                    const unit = row.querySelector('td:nth-child(6)').textContent;
+                    const importPrice = row.querySelector('td:nth-child(7)').textContent;
+                    const salePrice = row.querySelector('td:nth-child(8)').textContent;
+                    const status = row.querySelector('td:nth-child(9) span').textContent;
+
+                    // Set values in the form
+                    document.getElementById('editProductName').value = name;
+                    document.getElementById('editProductCategory').value = category;
+                    document.getElementById('editProductStock').value = stock;
+                    document.getElementById('editProductUnit').value = unit;
+                    document.getElementById('editProductImportPrice').value = importPrice;
+                    document.getElementById('editProductSalePrice').value = salePrice;
+
+                    // Set status
+                    const statusSelect = document.getElementById('editStatus');
+                    for (let i = 0; i < statusSelect.options.length; i++) {
+                        if (statusSelect.options[i].text === status) {
+                            statusSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+
+                    // Show the modal
+                    const editModal = new bootstrap.Modal(document.getElementById('editProductModal'));
+                    editModal.show();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

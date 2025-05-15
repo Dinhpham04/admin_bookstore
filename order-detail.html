@@ -279,6 +279,33 @@
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="js/template.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get order ID from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('id');
+
+            if (orderId) {
+                // Update order ID in the page
+                const orderIdElements = document.querySelectorAll('.order-id');
+                orderIdElements.forEach(el => {
+                    el.textContent = `#${orderId}`;
+                });
+
+                // TODO: In the future, you can fetch order details from server using JSP
+                // For example:
+                // fetch(`/api/orders/${orderId}`)
+                //     .then(response => response.json())
+                //     .then(data => {
+                //         // Update order details in the page
+                //         updateOrderDetails(data);
+                //     });
+            } else {
+                // Handle case when no order ID is provided
+                console.error('No order ID provided');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,95 @@
+/* User Profile Styles */
+.profile-card {
+    padding: 2rem;
+    text-align: center;
+}
+
+.profile-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.profile-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-card h3 {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f8f9fa;
+    color: #6c757d;
+    margin: 0 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #0d6efd;
+    color: #fff;
+}
+
+.profile-details .label {
+    font-weight: 600;
+    color: #6c757d;
+}
+
+.profile-details .value {
+    color: #212529;
+}
+
+.activity-item {
+    padding: 1rem;
+    border-left: 2px solid #e9ecef;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.activity-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 1.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #0d6efd;
+}
+
+.activity-item .activity-date {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.activity-item .activity-title {
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.activity-item .activity-description {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 1rem;
+    }
+
+    .profile-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
